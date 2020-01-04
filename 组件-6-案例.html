@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="test"></div>
+</body>
+<script src="./js/react.development.js"></script>
+<script src="./js/react-dom.development.js"></script>
+<script src="./js/prop-types.js"></script>
+<script src="./js/babel.min.js"></script>
+<script type="text/babel">
+    class LoginForm extends React.Component{
+        constructor(props){
+            super(props)
+            this.state = {
+                pwd:''
+            }
+            this.handleSubmit = this.handleSubmit.bind(this)
+            this.handleChange = this.handleChange.bind(this)
+        }
+
+        handleSubmit(event){
+            const name = this.input1.value
+            const pwd = this.state.pwd
+            alert(`准备提交的用户名为${name},密码为${pwd}`)
+            //阻止事件默认行为（提交）
+             event.preventDefault()
+
+        }
+        handleChange(event){
+            //读取输入的值
+            const pwd = event.target.value
+            //更新pwd状态
+            this.setState({
+                pwd
+            })
+        }
+
+        render(){
+            return(
+            <div>
+                <form action="/test" onSubmit={this.handleSubmit}>
+                    用户名：<input type="text" ref={input=>this.input1=input}/>
+                    密码：<input type="password" value={this.state.pwd} onChange={this.handleChange}/>
+                    <input type="submit" value="登陆"/>
+                </form>
+            </div>
+            )
+        }
+    }
+    ReactDOM.render(<LoginForm/>,document.querySelector('.test'))
+</script>
+</html>

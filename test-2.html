@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test1"></div>
+    <div id="test2"></div>
+</body>
+<script src="./js/react.development.js"></script>
+<script src="./js/react-dom.development.js"></script>
+<script src="./js/babel.min.js"></script>
+
+<!--渲染方法一-->
+<script type="text/javascript">
+    const myid='yujiang'
+    const vDom1 =React.createElement('h2',{id:myid},myid)
+    ReactDOM.render(vDom1,document.querySelector('#test2'))
+</script>
+
+
+
+<script type="text/babel">
+    const myId = 'yujiang'
+    const vDom2 = <h3 id='myId'>{myId.toLocaleUpperCase()}</h3>
+
+    ReactDOM.render(vDom2,document.querySelector('#test1'))
+</script>
+</html>

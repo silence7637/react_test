@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    .h{
+        color: pink;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test"></div>
+</body>
+<script src="./js/react.development.js"></script>
+<script src="./js/react-dom.development.js"></script>
+<script src="./js/babel.min.js"></script>
+<script type="text/babel">
+    //1.创建虚拟元素对象
+
+    let vDom = <h1 className="h">yujiang</h1>
+
+    //2.将虚拟dom渲染到页面真实容器中
+    ReactDOM.render(vDom,document.querySelector('#test'))
+
+</script>
+
+</html>
